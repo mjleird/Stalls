@@ -12,16 +12,24 @@ import FirebaseFirestore
 class firebaseUser{
     var objectID = ""
     var userID = ""
+    var firstName = ""
+    var lastName = ""
 }
 
-class firebaseUserFunctions{
-    //var ref: DatabaseReference!
-
-    //ref = Database.database().reference()
+class firebaseUserFunctions{    
+    let db = Firestore.firestore()
     
     func createObject(firebaseUser: firebaseUser){
-        print("blah")
-        self.ref.child("users").child(user.uid).setValue(["username": username])
+        db.collection("users").document(firebaseUser.objectID).setData(userDict(firebaseUser: firebaseUser)!)
+    }
+    func userDict(firebaseUser: firebaseUser) -> [String: Any]?{
+        let dict =
+        ["userId": firebaseUser.userID,
+         "objectId": firebaseUser.objectID,
+         "firstName": firebaseUser.firstName,
+         "lastName": firebaseUser.lastName]
+        
+        return dict
     }
     
 }

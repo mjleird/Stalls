@@ -77,6 +77,13 @@ struct createAccount: View{
             if (error == nil){
                 loggedInUser = uid
                 returnString =  "success"
+                var user = firebaseUser()
+                user.userID = authResult?.user.email ?? ""
+                user.objectID = loggedInUser
+                user.lastName = lastName
+                user.firstName = firstName
+                
+                firebaseUserFunctions().createObject(firebaseUser: user)
             }else{
                 returnString = error!.localizedDescription
             }
