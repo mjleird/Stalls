@@ -13,9 +13,17 @@
 		613B44C2276657B400F5F978 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 613B44C1276657B400F5F978 /* Preview Assets.xcassets */; };
 		613B44C4276657B400F5F978 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44C3276657B400F5F978 /* Persistence.swift */; };
 		613B44C7276657B400F5F978 /* Stalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 613B44C5276657B400F5F978 /* Stalls.xcdatamodeld */; };
+		613B44CE2766D11800F5F978 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 613B44CD2766D11800F5F978 /* GoogleService-Info.plist */; };
+		613B44D12766D58300F5F978 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44D02766D58300F5F978 /* Colors.swift */; };
+		613B44D32766D5C500F5F978 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44D22766D5C500F5F978 /* ViewExtensions.swift */; };
+		613B44D52766D64300F5F978 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44D42766D64300F5F978 /* Fonts.swift */; };
+		613B44D82766E85200F5F978 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44D72766E85100F5F978 /* CreateAccount.swift */; };
+		92282E8A66665BF9B7CDD739 /* Pods_Stalls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029C52B8ACF23D82FF13893A /* Pods_Stalls.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		029C52B8ACF23D82FF13893A /* Pods_Stalls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stalls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24146E30E2EB1C141B32D13F /* Pods-Stalls.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stalls.release.xcconfig"; path = "Target Support Files/Pods-Stalls/Pods-Stalls.release.xcconfig"; sourceTree = "<group>"; };
 		613B44B7276657B100F5F978 /* Stalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		613B44BA276657B100F5F978 /* StallsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsApp.swift; sourceTree = "<group>"; };
 		613B44BC276657B100F5F978 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +31,12 @@
 		613B44C1276657B400F5F978 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		613B44C3276657B400F5F978 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		613B44C6276657B400F5F978 /* Stalls.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stalls.xcdatamodel; sourceTree = "<group>"; };
+		613B44CD2766D11800F5F978 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		613B44D02766D58300F5F978 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		613B44D22766D5C500F5F978 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		613B44D42766D64300F5F978 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		613B44D72766E85100F5F978 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		DC8186A82430653D93917B93 /* Pods-Stalls.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stalls.debug.xcconfig"; path = "Target Support Files/Pods-Stalls/Pods-Stalls.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +44,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92282E8A66665BF9B7CDD739 /* Pods_Stalls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32BDED01FA001EBAF8F74B55 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC8186A82430653D93917B93 /* Pods-Stalls.debug.xcconfig */,
+				24146E30E2EB1C141B32D13F /* Pods-Stalls.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		613B44AE276657B100F5F978 = {
 			isa = PBXGroup;
 			children = (
 				613B44B9276657B100F5F978 /* Stalls */,
 				613B44B8276657B100F5F978 /* Products */,
+				32BDED01FA001EBAF8F74B55 /* Pods */,
+				79CDE97AE202953AE94401F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +81,9 @@
 		613B44B9276657B100F5F978 /* Stalls */ = {
 			isa = PBXGroup;
 			children = (
+				613B44D62766E83800F5F978 /* Login */,
+				613B44CF2766D57200F5F978 /* Utilities */,
+				613B44CD2766D11800F5F978 /* GoogleService-Info.plist */,
 				613B44BA276657B100F5F978 /* StallsApp.swift */,
 				613B44BC276657B100F5F978 /* ContentView.swift */,
 				613B44BE276657B400F5F978 /* Assets.xcassets */,
@@ -73,6 +102,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		613B44CF2766D57200F5F978 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				613B44D02766D58300F5F978 /* Colors.swift */,
+				613B44D22766D5C500F5F978 /* ViewExtensions.swift */,
+				613B44D42766D64300F5F978 /* Fonts.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		613B44D62766E83800F5F978 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				613B44D72766E85100F5F978 /* CreateAccount.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		79CDE97AE202953AE94401F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				029C52B8ACF23D82FF13893A /* Pods_Stalls.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 613B44CA276657B400F5F978 /* Build configuration list for PBXNativeTarget "Stalls" */;
 			buildPhases = (
+				4B2DA905ED8BCB4E7EB765EE /* [CP] Check Pods Manifest.lock */,
 				613B44B3276657B100F5F978 /* Sources */,
 				613B44B4276657B100F5F978 /* Frameworks */,
 				613B44B5276657B100F5F978 /* Resources */,
+				D80D4839A9A7847FA94FF9C8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,20 +190,67 @@
 			files = (
 				613B44C2276657B400F5F978 /* Preview Assets.xcassets in Resources */,
 				613B44BF276657B400F5F978 /* Assets.xcassets in Resources */,
+				613B44CE2766D11800F5F978 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B2DA905ED8BCB4E7EB765EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stalls-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D80D4839A9A7847FA94FF9C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stalls/Pods-Stalls-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stalls/Pods-Stalls-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stalls/Pods-Stalls-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		613B44B3276657B100F5F978 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613B44D52766D64300F5F978 /* Fonts.swift in Sources */,
 				613B44C4276657B400F5F978 /* Persistence.swift in Sources */,
+				613B44D12766D58300F5F978 /* Colors.swift in Sources */,
 				613B44BD276657B100F5F978 /* ContentView.swift in Sources */,
 				613B44C7276657B400F5F978 /* Stalls.xcdatamodeld in Sources */,
+				613B44D32766D5C500F5F978 /* ViewExtensions.swift in Sources */,
 				613B44BB276657B100F5F978 /* StallsApp.swift in Sources */,
+				613B44D82766E85200F5F978 /* CreateAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +375,7 @@
 		};
 		613B44CB276657B400F5F978 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC8186A82430653D93917B93 /* Pods-Stalls.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -300,6 +405,7 @@
 		};
 		613B44CC276657B400F5F978 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24146E30E2EB1C141B32D13F /* Pods-Stalls.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

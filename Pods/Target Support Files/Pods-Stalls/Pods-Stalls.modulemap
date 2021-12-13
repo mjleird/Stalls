@@ -1,0 +1,6 @@
+framework module Pods_Stalls {
+  umbrella header "Pods-Stalls-umbrella.h"
+
+  export *
+  module * { export * }
+}
