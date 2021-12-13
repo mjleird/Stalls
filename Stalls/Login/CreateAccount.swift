@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct createAccount: View{
     @State var firstName: String = ""
@@ -14,6 +16,7 @@ struct createAccount: View{
     @State var UserName: String = ""
     @State var Password: String = ""
     @Binding var showingForm: Bool
+    @Binding var loggedInUser: String
     
     var body: some View {
         VStack(){
@@ -49,8 +52,8 @@ struct createAccount: View{
             }
             Button(action: {
                 print("Submit create account")
-                var successAccount = createEmailAccount()
-                if(successAccount == true){
+                var successAccount = createEmailAccount(email: UserName, pass: Password)
+                if(successAccount == "success"){
                     showingForm.toggle()
                 }
             }){
@@ -64,9 +67,23 @@ struct createAccount: View{
             .buttonStyle(CustomButtonStyle())
     }
     
-    func createEmailAccount() -> Bool{
+    func createEmailAccount(email: String, pass: String) -> String{
         //create
-        return true
+        var returnString = ""
+        Auth.auth().createUser(withEmail: email, password: pass) { authResult, error in
+            print(error?.localizedDescription)
+            let uid = authResult!.user.uid
+            
+            if (error == nil){
+                loggedInUser = uid
+                returnString =  "success"
+            }else{
+                returnString = error!.localizedDescription
+            }
+           
+            print(uid)
+        }
+        return returnString
     }
 }
 

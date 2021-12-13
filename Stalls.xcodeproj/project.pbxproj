@@ -18,6 +18,7 @@
 		613B44D32766D5C500F5F978 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44D22766D5C500F5F978 /* ViewExtensions.swift */; };
 		613B44D52766D64300F5F978 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44D42766D64300F5F978 /* Fonts.swift */; };
 		613B44D82766E85200F5F978 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44D72766E85100F5F978 /* CreateAccount.swift */; };
+		613B44DB2766F87A00F5F978 /* UserFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44DA2766F87A00F5F978 /* UserFunctions.swift */; };
 		92282E8A66665BF9B7CDD739 /* Pods_Stalls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029C52B8ACF23D82FF13893A /* Pods_Stalls.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		613B44D22766D5C500F5F978 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		613B44D42766D64300F5F978 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		613B44D72766E85100F5F978 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		613B44DA2766F87A00F5F978 /* UserFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFunctions.swift; sourceTree = "<group>"; };
 		DC8186A82430653D93917B93 /* Pods-Stalls.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stalls.debug.xcconfig"; path = "Target Support Files/Pods-Stalls/Pods-Stalls.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		613B44B9276657B100F5F978 /* Stalls */ = {
 			isa = PBXGroup;
 			children = (
+				613B44D92766F86800F5F978 /* FirebaseFunctions */,
 				613B44D62766E83800F5F978 /* Login */,
 				613B44CF2766D57200F5F978 /* Utilities */,
 				613B44CD2766D11800F5F978 /* GoogleService-Info.plist */,
@@ -118,6 +121,14 @@
 				613B44D72766E85100F5F978 /* CreateAccount.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		613B44D92766F86800F5F978 /* FirebaseFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				613B44DA2766F87A00F5F978 /* UserFunctions.swift */,
+			);
+			path = FirebaseFunctions;
 			sourceTree = "<group>";
 		};
 		79CDE97AE202953AE94401F1 /* Frameworks */ = {
@@ -249,6 +260,7 @@
 				613B44BD276657B100F5F978 /* ContentView.swift in Sources */,
 				613B44C7276657B400F5F978 /* Stalls.xcdatamodeld in Sources */,
 				613B44D32766D5C500F5F978 /* ViewExtensions.swift in Sources */,
+				613B44DB2766F87A00F5F978 /* UserFunctions.swift in Sources */,
 				613B44BB276657B100F5F978 /* StallsApp.swift in Sources */,
 				613B44D82766E85200F5F978 /* CreateAccount.swift in Sources */,
 			);
