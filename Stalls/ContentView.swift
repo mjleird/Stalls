@@ -15,6 +15,8 @@ struct ContentView: View {
     @State var password: String = ""
     @State var isLoggedIn: Bool = false
     @State var loggedInUser: String = ""
+    @State var showingAbout: Bool = false
+    @State var showingCheckin: Bool = false
     
     var body: some View {
         NavigationView {
@@ -25,13 +27,46 @@ struct ContentView: View {
                     LoginView(username: $username, password: $password, loggedInUser: $loggedInUser)
                 }
                 
-            }.padding(.leading, 25)
+            }
+            .padding(.leading, 25)
                 .padding(.trailing, 25)
             .navigationTitle("Stalls") // delete if you want no title
             .navigationBarTitleDisplayMode(.inline)
             .navigationViewStyle(StackNavigationViewStyle())
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    if loggedInUser != "" {
+                        Button(action: {
+                            self.showingCheckin.toggle()
+                        }){
+                            Image(systemName: "plus").foregroundColor(.white).font(.system(size: 16))
+                        }
+                    }
+                }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    if loggedInUser != "" {
+                        Button(action: {
+                            self.showingAbout.toggle()
+                        }){
+                            Image(systemName: "info.circle").foregroundColor(.white).font(.system(size: 16))
+                        }
+                    }
+                }
+            }
             .customNavigation
-            .standardViewWtihGradientBackground()
+               .standardViewWtihGradientBackground()
+          .sheet(isPresented: $showingAbout) {
+                                        NavigationView{
+                                            AboutView()
+                                        }
+                                        
+                                    }.sheet(isPresented: $showingCheckin) {
+                                        NavigationView{
+                                            createCheckIn()
+                                        }
+                                        
+                                    }
+           
                 
         }
     }
@@ -68,6 +103,8 @@ struct LoginView: View{
                 NavigationView{
                     createAccount(showingForm: $showingCreateAccount, loggedInUser: $loggedInUser)
                 }
+            }.onAppear{
+               loggedInUser = userInfo().getUserId()
             }
     }
     
@@ -75,14 +112,14 @@ struct LoginView: View{
         Auth.auth().signIn(withEmail: username, password: password) { authResult, error in
             let uid = authResult?.user.uid ?? nil
             //print(authResult!.user.uid)
-            
             if(uid != nil){
                 loggedInUser = authResult!.user.uid
+                userInfo().logInUser(userId: loggedInUser)
             }else{
                 errorMessage = error?.localizedDescription ?? ""
-                print(error?.localizedDescription)
+               // print(error?.localizedDescription)
             }
-          // ...
+
         }
     }
 }

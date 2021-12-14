@@ -9,6 +9,6 @@ target 'Stalls' do
 
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
-
+pod 'GooglePlaces', '6.0.0'
 
 end
