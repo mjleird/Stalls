@@ -25,7 +25,6 @@ class firebaseStallFunctions{
     
     func createObject(firebaseCheckIn: checkInClass){
         var ref: DocumentReference? = nil
-        let value: Double = 1.0
         
         var ref1: DocumentReference? = nil
         
@@ -35,7 +34,7 @@ class firebaseStallFunctions{
             if(document!.exists == false){
                 ref = self.db.collection("checkIns").addDocument(data: self.checkInDict(checkIn: firebaseCheckIn)!){ err in
                     let docId = ref!.documentID
-                    let placeId =
+
                     self.db.collection("users").document(firebaseCheckIn.userId).collection("checkIns").document(docId).setData(self.checkInDict(checkIn: firebaseCheckIn)!)
                     
                     self.db.collection("places").document(firebaseCheckIn.placeId).setData(["placeId": firebaseCheckIn.placeId])
@@ -48,7 +47,7 @@ class firebaseStallFunctions{
             }else{
                 ref = self.db.collection("checkIns").addDocument(data: self.checkInDict(checkIn: firebaseCheckIn)!){ err in
                     let docId = ref!.documentID
-                    let placeId =
+    
                     self.db.collection("users").document(firebaseCheckIn.userId).collection("checkIns").document(docId).setData(self.checkInDict(checkIn: firebaseCheckIn)!)
                     
                     self.db.collection("places").document(firebaseCheckIn.placeId).collection("reviews").document(docId).setData(self.checkInDict(checkIn: firebaseCheckIn)!)
