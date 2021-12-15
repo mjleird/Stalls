@@ -22,6 +22,7 @@
 		613B44DE2767003300F5F978 /* CreateStall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44DD2767003300F5F978 /* CreateStall.swift */; };
 		613B44E027681D4600F5F978 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44DF27681D4500F5F978 /* About.swift */; };
 		613B44E227681FBA00F5F978 /* MasterFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44E127681FBA00F5F978 /* MasterFunctions.swift */; };
+		613B44E4276826D000F5F978 /* StallFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B44E3276826D000F5F978 /* StallFunctions.swift */; };
 		92282E8A66665BF9B7CDD739 /* Pods_Stalls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029C52B8ACF23D82FF13893A /* Pods_Stalls.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		613B44DD2767003300F5F978 /* CreateStall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStall.swift; sourceTree = "<group>"; };
 		613B44DF27681D4500F5F978 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		613B44E127681FBA00F5F978 /* MasterFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterFunctions.swift; sourceTree = "<group>"; };
+		613B44E3276826D000F5F978 /* StallFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallFunctions.swift; sourceTree = "<group>"; };
 		DC8186A82430653D93917B93 /* Pods-Stalls.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stalls.debug.xcconfig"; path = "Target Support Files/Pods-Stalls/Pods-Stalls.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				613B44DA2766F87A00F5F978 /* UserFunctions.swift */,
+				613B44E3276826D000F5F978 /* StallFunctions.swift */,
 			);
 			path = FirebaseFunctions;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				613B44B4276657B100F5F978 /* Frameworks */,
 				613B44B5276657B100F5F978 /* Resources */,
 				D80D4839A9A7847FA94FF9C8 /* [CP] Embed Pods Frameworks */,
+				FABDFAA2AC6BB1EFE9C4D19F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,6 +268,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stalls/Pods-Stalls-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FABDFAA2AC6BB1EFE9C4D19F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stalls/Pods-Stalls-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stalls/Pods-Stalls-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stalls/Pods-Stalls-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -280,6 +301,7 @@
 				613B44C7276657B400F5F978 /* Stalls.xcdatamodeld in Sources */,
 				613B44D32766D5C500F5F978 /* ViewExtensions.swift in Sources */,
 				613B44DB2766F87A00F5F978 /* UserFunctions.swift in Sources */,
+				613B44E4276826D000F5F978 /* StallFunctions.swift in Sources */,
 				613B44E227681FBA00F5F978 /* MasterFunctions.swift in Sources */,
 				613B44BB276657B100F5F978 /* StallsApp.swift in Sources */,
 				613B44D82766E85200F5F978 /* CreateAccount.swift in Sources */,

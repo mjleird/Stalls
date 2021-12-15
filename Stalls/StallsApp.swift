@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import GooglePlaces
 
 @main
 struct StallsApp: App {
@@ -25,7 +26,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("Your code here")
         FirebaseApp.configure()
-
+        GMSPlacesClient.provideAPIKey("AIzaSyCrnis3INHM5ND4n86bQZf1HsnQvaefA6U")
+        
         return true
     }
 }
