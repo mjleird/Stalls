@@ -5,7 +5,7 @@ import FirebaseAuth
 import GooglePlaces
 
 struct createCheckIn: View{
-   // @State var rating: String = ""
+
     @State var rating = 5.0
     @State private var isEditing = false
     @State var address = ""
@@ -13,14 +13,17 @@ struct createCheckIn: View{
     @State var checkIn: checkInClass = checkInClass()
     @State var showingCheckin = false
     @State var bathroomSelect = 0
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var errorMessage = ""
+    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack(){
             Spacer()
+            Text(errorMessage).foregroundColor(.red)
             Form{
                 Section(header: Text("Location").font(.headlineCustom)){
-                    //NavigationLink("Navigator", destination: Text("Subsequent View"))
                     HStack(){
                         Text(returnedPlace.name)
                         Spacer()
@@ -55,21 +58,18 @@ struct createCheckIn: View{
             }
             Button(action: {
                 print("Check in!")
-                checkIn.userId = userInfo().getUserId()
-                checkIn.placeId = returnedPlace.placeID
-                checkIn.type = String(bathroomSelect)
-                checkIn.rating = rating
-                
-                firebaseStallFunctions().createObject(firebaseCheckIn: checkIn)
-
+                let check = dismissView()
+                if (check == "Success"){
+                    print("Success")
+                    self.isPresented = false
+                }
             }){
                 Text("Check in").frame(minWidth: 300)
             }
            .sheet(isPresented: $showingCheckin) {
                 VStack(){
-                    PlacePicker(presentationMode: _presentationMode, address: $address, place: $returnedPlace)
+                    PlacePicker(presentationMode: _presentationMode, place: $returnedPlace)
                 }
-                
             }
             Text(address).hidden()
             Spacer()
@@ -79,7 +79,31 @@ struct createCheckIn: View{
             .standardViewWtihGradientBackground()
             .buttonStyle(CustomButtonStyle())
     }
-    
+    func dismissView() -> String{
+        
+        if(returnedPlace.placeID == ""){
+           
+            errorMessage = "Please specify a location"
+            
+            return "Fail"
+        }else{
+            errorMessage = ""
+            
+            checkIn.userId = userInfo().getUserId()
+            print(checkIn.userId)
+            checkIn.placeId = returnedPlace.placeID
+            checkIn.type = String(bathroomSelect)
+            checkIn.rating = rating
+            checkIn.name = returnedPlace.name
+            
+            firebaseStallFunctions().createObject(firebaseCheckIn: checkIn)
+            
+            return "Success"
+           
+        }
+        
+        
+    }
 }
 struct PlacePicker: UIViewControllerRepresentable {
 
@@ -87,7 +111,7 @@ struct PlacePicker: UIViewControllerRepresentable {
         Coordinator(self)
     }
     @Environment(\.presentationMode) var presentationMode
-    @Binding var address: String
+    //@Binding var address: String
     @Binding var place: place
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<PlacePicker>) -> GMSAutocompleteViewController {
@@ -121,7 +145,7 @@ struct PlacePicker: UIViewControllerRepresentable {
         func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
             DispatchQueue.main.async {
                 print(place.description.description as Any)
-                self.parent.address =  place.name!
+                //self.parent.address =  place.name!
                 self.parent.place.name = place.name!
                 self.parent.place.placeID = place.placeID!
                 self.parent.presentationMode.wrappedValue.dismiss()

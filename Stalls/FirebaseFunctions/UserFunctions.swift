@@ -8,12 +8,16 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import SwiftUI
 
 class firebaseUser{
     var objectID = ""
     var userID = ""
     var firstName = ""
     var lastName = ""
+    var numberOfCheckins = 0.0
+    var sumOfCheckins = 0.0
+    var averageRating = 0.0
 }
 
 class firebaseUserFunctions{    
@@ -27,9 +31,11 @@ class firebaseUserFunctions{
         ["userId": firebaseUser.userID,
          "objectId": firebaseUser.objectID,
          "firstName": firebaseUser.firstName,
-         "lastName": firebaseUser.lastName]
-        
+         "lastName": firebaseUser.lastName,
+         "numberOfCheckins": firebaseUser.numberOfCheckins,
+         "sumOfCheckins": firebaseUser.sumOfCheckins] as [String : Any]
+    
         return dict
     }
-    
+       
 }

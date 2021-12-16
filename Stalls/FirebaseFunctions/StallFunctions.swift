@@ -13,12 +13,16 @@ import GooglePlaces
 class place{
     var placeID = ""
     var name = ""
+    var sumOfRatings = 0.0
+    var sumOfCheckins = 0.0
+    var averageRating = 0.0
 }
 class checkInClass{
     var userId = ""
     var placeId = ""
     var rating = 0.0
     var type = ""
+    var name = ""
 }
 class firebaseStallFunctions{
     let db = Firestore.firestore()
@@ -37,18 +41,21 @@ class firebaseStallFunctions{
 
                     self.db.collection("users").document(firebaseCheckIn.userId).collection("checkIns").document(docId).setData(self.checkInDict(checkIn: firebaseCheckIn)!)
                     
-                    self.db.collection("places").document(firebaseCheckIn.placeId).setData(["placeId": firebaseCheckIn.placeId])
+                    self.db.collection("places").document(firebaseCheckIn.placeId).setData(["placeId": firebaseCheckIn.placeId, "name": firebaseCheckIn.name])
                     
                     self.db.collection("places").document(firebaseCheckIn.placeId).collection("reviews").document(docId).setData(self.checkInDict(checkIn: firebaseCheckIn)!)
                     
                     self.db.collection("places").document(firebaseCheckIn.placeId).updateData(["rating": FieldValue.increment(Int64(1)), "ratingSum" : FieldValue.increment(Int64(firebaseCheckIn.rating))])
                     
+                    self.db.collection("users").document(firebaseCheckIn.userId).updateData(["numberOfCheckins": FieldValue.increment(Int64(1)), "ratingSum" : FieldValue.increment(Int64(firebaseCheckIn.rating))])
                 }
             }else{
                 ref = self.db.collection("checkIns").addDocument(data: self.checkInDict(checkIn: firebaseCheckIn)!){ err in
                     let docId = ref!.documentID
     
                     self.db.collection("users").document(firebaseCheckIn.userId).collection("checkIns").document(docId).setData(self.checkInDict(checkIn: firebaseCheckIn)!)
+                    
+                    self.db.collection("users").document(firebaseCheckIn.userId).updateData(["numberOfCheckins": FieldValue.increment(Int64(1)), "ratingSum" : FieldValue.increment(Int64(firebaseCheckIn.rating))])
                     
                     self.db.collection("places").document(firebaseCheckIn.placeId).collection("reviews").document(docId).setData(self.checkInDict(checkIn: firebaseCheckIn)!)
                     

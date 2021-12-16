@@ -17,27 +17,56 @@ struct ContentView: View {
     @State var loggedInUser: String = ""
     @State var showingAbout: Bool = false
     @State var showingCheckin: Bool = false
+ 
+    @State var value: Int = 1
+    @State var formTitle: String = "Search"
     
     var body: some View {
         NavigationView {
             VStack(){
                 if loggedInUser != ""{
-                    Text("You're logged in")
+                    TabView(selection: $value) {
+                        SearchView().tabItem {
+                            Label("Search", systemImage: "magnifyingglass")
+                        }.standardViewWtihGradientBackground()
+                            .tag(1)
+                        StandardView().tabItem {
+                            Label("Nearby", systemImage: "paperplane")
+                        }.standardViewWtihGradientBackground()
+                            .tag(2)
+                        StandardView().tabItem {
+                            Label("Timeline", systemImage: "newspaper")
+                        }.standardViewWtihGradientBackground()
+                            .tag(3)
+                        ProfileView().tabItem {
+                            Label("User Profile", systemImage: "person.crop.circle")
+                        }.tag(4)
+                    }.font(.headlineCustom)
+                    .accentColor(.white)
+                    .onChange(of: value) { val in
+                        if(val == 1){
+                            self.formTitle = "Search"
+                        }else if (val == 2){
+                            self.formTitle = "Nearby"
+                        }else if(val == 3){
+                            self.formTitle = "Timeline"
+                        }else{
+                            self.formTitle = "Profile"
+                        }
+                    }
                 }else{
                     LoginView(username: $username, password: $password, loggedInUser: $loggedInUser)
                 }
                 
             }
-            .padding(.leading, 25)
-                .padding(.trailing, 25)
-            .navigationTitle("Stalls") // delete if you want no title
+            .navigationTitle(formTitle)
             .navigationBarTitleDisplayMode(.inline)
             .navigationViewStyle(StackNavigationViewStyle())
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     if loggedInUser != "" {
                         Button(action: {
-                            self.showingCheckin.toggle()
+                            self.showingCheckin = true
                         }){
                             Image(systemName: "plus").foregroundColor(.white).font(.system(size: 16))
                         }
@@ -62,7 +91,7 @@ struct ContentView: View {
                                         
                                     }.sheet(isPresented: $showingCheckin) {
                                         NavigationView{
-                                            createCheckIn()
+                                            createCheckIn(isPresented: $showingCheckin)
                                         }
                                         
                                     }
@@ -98,7 +127,8 @@ struct LoginView: View{
             }){
                 Text("Create Account").frame(minWidth: 300)
             }
-        }.buttonStyle(CustomButtonStyle())
+        }
+        .buttonStyle(CustomButtonStyle())
             .sheet(isPresented: $showingCreateAccount) {
                 NavigationView{
                     createAccount(showingForm: $showingCreateAccount, loggedInUser: $loggedInUser)
@@ -128,3 +158,18 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
+struct StandardView: View{
+    
+    var body: some View {
+        Form{
+            NavigationLink(destination: AboutView()){
+                Text("Test")
+            }
+        }.onAppear{
+            UITableView.appearance().backgroundColor = .clear
+        }
+    }
+    
+}
+
